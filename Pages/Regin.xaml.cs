@@ -177,5 +177,10 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
         {
             e.Handled = !(Char.IsLetter(e.Text, 0));
         }
+        public void SetNotification(string Message, SolidColorBrush _Color)
+        {
+            LNameUser.Content = Message;
+            LNameUser.Foreground = _Color;
+        }
     }
 }
