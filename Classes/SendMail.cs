@@ -10,10 +10,10 @@ namespace RegIN_Bulatov_Perevozshikova.Classes
             var smtpClient = new SmtpClient("smtp.yandex.ru")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("KekMem11@yandex.ru", "jwstegerpyndznoy"),
+                Credentials = new NetworkCredential("@yandex.ru", "jwstegerpyndznoy"),
                 EnableSsl = true,
             };
-            smtpClient.Send("KekMem11@yandex.ru", To, "RegIn", Message);
+            smtpClient.Send("@yandex.ru", To, "RegIn", Message);
         }
     }
 }

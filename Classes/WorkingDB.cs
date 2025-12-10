@@ -1,6 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
-using MySql.Data.MySqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RegIN_Bulatov_Perevozshikova.Classes
 {
