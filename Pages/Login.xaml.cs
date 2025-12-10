@@ -24,17 +24,17 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
         {
             InitializeComponent();
 
-            MainWindow.mainWindow.UserLogin.HandlerCorrectLogin += CorrectLogin;
-            MainWindow.mainWindow.UserLogin.HandlerInCorrectLogin += InCorrectLogin;
+            MainWindow.mainWindow.UserLogIn.HandlerCorrectLogin += CorrectLogin;
+            MainWindow.mainWindow.UserLogIn.HandlerInCorrectLogin += InCorrectLogin;
             Capture.HandlerCorrectCapture += CorrectCapture;
         }
 
         public void CorrectLogin()
         {
-            if (TbLogin.Text != MainWindow.mainWindow.UserLogin.Login)
+            if (TbLogin.Text != MainWindow.mainWindow.UserLogIn.Login)
             {
-                SetNotification($"Hi, {MainWindow.mainWindow.UserLogin.Name}", Brushes.Black);
-                UpdateImage(MainWindow.mainWindow.UserLogin.Image);
+                SetNotification($"Hi, {MainWindow.mainWindow.UserLogIn.Name}", Brushes.Black);
+                UpdateImage(MainWindow.mainWindow.UserLogIn.Image);
             }
         }
         public void InCorrectLogin()
@@ -53,13 +53,13 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
 
         public void SetPassword()
         {
-            if (MainWindow.mainWindow.UserLogin.Password != String.Empty)
+            if (MainWindow.mainWindow.UserLogIn.Password != String.Empty)
             {
                 if (IsCapture)
                 {
-                    if (MainWindow.mainWindow.UserLogin.Password == TbPassword.Password)
+                    if (MainWindow.mainWindow.UserLogIn.Password == TbPassword.Password)
                     {
-                        if (string.IsNullOrEmpty(MainWindow.mainWindow.UserLogin.PinCode))
+                        if (string.IsNullOrEmpty(MainWindow.mainWindow.UserLogIn.PinCode))
                         {
                             MainWindow.mainWindow.OpenPage(new Confirmation(Confirmation.TypeConfirmation.Login));
                         }
@@ -79,7 +79,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
                         {
                             Thread TBlockAuthorization = new Thread(BlockAuthorization);
                             TBlockAuthorization.Start();
-                            SendMail.SendMessage("An attempt was made to log into your account.", MainWindow.mainWindow.UserLogin.Login);
+                            SendMail.SendMessage("An attempt was made to log into your account.", MainWindow.mainWindow.UserLogIn.Login);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
             }
             Dispatcher.Invoke(() =>
             {
-                SetNotification($"Hi, {MainWindow.mainWindow.UserLogin.Name}", Brushes.Black);
+                SetNotification($"Hi, {MainWindow.mainWindow.UserLogIn.Name}", Brushes.Black);
                 TbLogin.IsEnabled = true;
                 TbPassword.IsEnabled = true;
                 Capture.IsEnabled = true;
@@ -177,7 +177,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
         {
             if (e.Key == Key.Enter)
             {
-                MainWindow.mainWindow.UserLogin.GetUserLogin(TbLogin.Text);
+                MainWindow.mainWindow.UserLogIn.GetUserLogin(TbLogin.Text);
 
                 if (TbPassword.Password.Length > 0)
                 {
@@ -198,7 +198,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
 
         private void SetLogin(object sender, RoutedEventArgs e)
         {
-            MainWindow.mainWindow.UserLogin.GetUserLogin(TbLogin.Text);
+            MainWindow.mainWindow.UserLogIn.GetUserLogin(TbLogin.Text);
 
             if (TbPassword.Password.Length > 0)
             {
