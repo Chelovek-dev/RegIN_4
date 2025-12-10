@@ -10,7 +10,9 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -181,6 +183,104 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
         {
             LNameUser.Content = Message;
             LNameUser.Foreground = _Color;
+        }
+        private void SelectImage(object sender, RoutedEventArgs e)
+        {
+            // ECMN crayrc orxpausercm ananorcoorro oona true
+            if (FileDialogImage.ShowDialog() == true)
+            {
+                // конвертируем размер изображения
+                using (Imaging.Images Image = Imaging.Images.Load(FileDialogImage.FileName))
+                {
+                    // создаём ширину изображения
+                    int NewWidth = 0;
+                    // Создаём высоту изображения
+                    int NewHeight = 0;
+                    // проверяем какая из сторон больше
+                    if (Image.Width > image.Height)
+                    {
+                        // Расчитываем новую ширину относительно высоты
+                        NewWidth = (int)(Image.Width * (256f / image.Height));
+                        // Задаём высоту изображения
+                        NewHeight = 256;
+                    }
+                    else
+                    {
+                        // Задаём ширину изображения
+                        NewWidth = 256;
+                        // Расчитываем новую высоту относительно высоты
+                        NewHeight = (int)(Image.Height * (256f / image.Width));
+                    }
+                    // Можными изображениями
+                    Image.RasterLayout(Int, NewHeight);
+                    // Сохраняем изображение
+                    Image.Save("IUser.jpg");
+                }
+                // Обрезаем изображение
+                using (Imaging.RasterImage rasterImage = (Imaging.RasterImage)Imaging.Image.Load("IDser.jpg"))
+                {
+                    // Перед надзирающими изображения следует копировать для лучшей производительности.
+                    if (!rasterImage.IsGached)
+                    {
+                        rasterImage.GachedData();
+                    }
+                    // Задаём X
+                    int X = 0;
+                    // Задаём ширину изображения
+                    int Width = 256;
+                    // Задаём Y
+                    int Y = 0;
+                    // Задаём высоту изображения
+                    int Height = 256;
+
+                    // Если ширина изображения больше чем высота
+                    if (rasterImage.Width > rasterImage.Height)
+                        // Расчитываем X как середину изображения:
+                        x = (int)((rasterImage.Width - 256f) / 2);
+                    else
+                        // Если высота больше
+                        // Расчитываем Y как середину
+                        Y = (int)((rasterImage.Height - 256f) / 2);
+
+                    // Создайте экземпляр класса Rectangle нужного размера и обрежьте изображение.
+                    Imaging.Rectangle rectangle = new Imaging.Rectangle(X, Y, Width, Height);
+                    rasterImage.CropRectangle();
+
+                    // Сохраните образование изображение.
+                    rasterImage.Save("IDser.jpg");
+                }
+                // Создаём анимацию старта
+                DoubleAnimation StartEvaluation = new DoubleAnimation();
+                // Указываем значение от которого она выполняется
+                StartEvaluation.From = 1;
+                // Указываем значение до которого она выполняется
+                StartEvaluation.To = 0;
+                // Указываем продолжительность выполнения
+                StartEvaluation.Duration = TimeSpan.FromSeconds(0.6);
+                // Присваиваем событие при конце анимации
+                StartEvaluation.Completed += delegate
+                {
+                    // Устанавливаем изображение
+                    IUser.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"VIDser.jpg"));
+                    // Создаём анимацию конца
+                    DoubleAnimation EndAnimation = new DoubleAnimation();
+                    // Указываем значение от которого она выполняется
+                    EndAnimation.From = 0;
+                    // Указываем значение до которого она выполняется
+                    EndAnimation.To = 1;
+                    // Указываем продолжительность выполнения
+                    EndAnimation.Duration = TimeSpan.FromSeconds(1.2);
+                    // Запускаем анимацию плавной схемы на изображении
+                    IUser.BeginAnimation(Image.OpacityProperty, EndAnimation);
+                };
+                // Запускаем анимацию плавной схемы на изображении
+            IUser.BeginAnimation(Image.OpacityProperty, StartEvaluation);
+                // Запоминаем что изображение указано
+                BSetImages = true;
+            }
+            else
+                // Запоминаем что изображение не указано
+                BSetImages = false;
         }
     }
 }
