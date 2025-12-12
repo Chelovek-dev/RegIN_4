@@ -26,11 +26,14 @@ namespace RegIN_Bulatov_Perevozshikova.Elements
         int ElementWidth = 280;
         int ElementHeight = 50;
 
+        // Изменяем константу длины капчи с 4 на 5
+
         public ElementCapture()
         {
             InitializeComponent();
             CreateCapture();
         }
+
         public void CreateCapture()
         {
             InputCapture.Text = "";
@@ -39,6 +42,7 @@ namespace RegIN_Bulatov_Perevozshikova.Elements
             CreateBackground();
             Background();
         }
+
         #region CreateCapture
         void CreateBackground()
         {
@@ -57,10 +61,11 @@ namespace RegIN_Bulatov_Perevozshikova.Elements
                 Capture.Children.Add(LBackground);
             }
         }
+
         void Background()
         {
             Random ThisRandom = new Random();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 int back = ThisRandom.Next(0, 10);
                 Label LCode = new Label()
@@ -69,20 +74,22 @@ namespace RegIN_Bulatov_Perevozshikova.Elements
                     FontSize = 30,
                     FontWeight = FontWeights.Bold,
                     Foreground = new SolidColorBrush(Color.FromArgb(255, (byte)ThisRandom.Next(0, 255), (byte)ThisRandom.Next(0, 255), (byte)ThisRandom.Next(0, 255))),
-                    Margin = new Thickness(ElementWidth / 2 - 60 + i * 30, ThisRandom.Next(-10, 10), 0, 0)
+                    Margin = new Thickness(ElementWidth / 2 - 75 + i * 30, ThisRandom.Next(-10, 10), 0, 0)
                 };
                 StrCapture += back.ToString();
                 Capture.Children.Add(LCode);
             }
         }
         #endregion
+
         public bool OnCapture()
         {
             return StrCapture == InputCapture.Text;
         }
+
         private void EnterCapture(object sender, KeyEventArgs e)
         {
-            if (InputCapture.Text.Length == 4)
+            if (InputCapture.Text.Length == 5)
             {
                 if (!OnCapture())
                 {

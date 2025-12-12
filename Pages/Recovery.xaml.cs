@@ -78,7 +78,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
 
                 StartAnimation.Completed += delegate
                 {
-                    IUser.Source = new BitmapImage(new Uri("pack://application:,,,/Images/ic-user.png"));
+                    IUser.Source = new BitmapImage(new Uri("/Images/ic-user.png"));
 
                     DoubleAnimation EndAnimation = new DoubleAnimation();
                     EndAnimation.From = 0;
@@ -125,7 +125,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
 
                     StartAnimation.Completed += delegate
                     {
-                        IUser.Source = new BitmapImage(new Uri("pack://application:,,,/Images/mail.png"));
+                        IUser.Source = new BitmapImage(new Uri("pack://application:,,,/Images/ic-mail.png"));
 
                         DoubleAnimation EndAnimation = new DoubleAnimation();
                         EndAnimation.From = 0;

@@ -34,13 +34,15 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
             {
                 SetNotification("", Brushes.Black);
                 MainWindow.mainWindow.UserLogin.GetPinCode(TbPinCode.Text);
+                MessageBox.Show("Пин-код подтвержден.");
             }
             else
             {
                 SetNotification("Pin code must be 4 digits.", Brushes.Red);
+                MessageBox.Show("Пин-код неправильный.");
+
             }
             OnPinCode();
-            MessageBox.Show("Пин-код подтвержден.");
         }
         void OnPinCode()
         {

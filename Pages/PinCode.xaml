@@ -16,7 +16,7 @@
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{DynamicResource MaterialDesignFont}">
 
-    <Grid Background="Beige">
+    <Grid>
         <materialDesign:Card Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Width="307">
             <Grid>
                 <Label Content="Enter your 4-digit Pin Code:" Margin="10,20,10,0" VerticalAlignment="Top"/>

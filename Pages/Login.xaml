@@ -17,7 +17,7 @@ xmlns:uc="clr-namespace:RegIN_Bulatov_Perevozshikova.Elements"
       Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}">
 
-    <Grid Background="Beige">
+    <Grid>
         <materialDesign:Card Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
             <Grid>
                 <Image x:Name="IUser" HorizontalAlignment="Center" Height="100" Margin="32" VerticalAlignment="Top" Width="100" Source="/Images/ic-user.png">
