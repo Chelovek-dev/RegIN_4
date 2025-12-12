@@ -62,7 +62,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
 
                 if (ThisTypeConfirmation == TypeConfirmation.Regin)
                 {
-                    MainWindow.mainWindow.UserLogIn.SetUser();
+                    MainWindow.mainWindow.UserLogin.SetUser();
                 }
                 else
                 {

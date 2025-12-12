@@ -14,7 +14,8 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       Background="{DynamicResource MaterialDesignPaper}"
-      FontFamily="{DynamicResource MaterialDesignFont}">
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      xmlns:uc="clr-namespace:RegIN_Bulatov_Perevozshikova.Elements">
     <Grid>
         <materialDesign:Card Height="345" VerticalAlignment="Center" HorizontalAlignment="Center" Width="308">
             <Grid>

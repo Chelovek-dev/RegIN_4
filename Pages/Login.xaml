@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RegIN_Bulatov_Perevozshikova.Pages" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-      xmlns:uc="clr-namespace:RegIN_Bulatov_Perevozshikova.Elements"
+xmlns:uc="clr-namespace:RegIN_Bulatov_Perevozshikova.Elements"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login"
@@ -20,7 +20,7 @@
     <Grid Background="Beige">
         <materialDesign:Card Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
             <Grid>
-                <Image x:Name="IUser" HorizontalAlignment="Center" Height="100" Margin="32" VerticalAlignment="Top" Width="100" Source="/PR6_RegIN_Mohov;component/Images/ic-user.png">
+                <Image x:Name="IUser" HorizontalAlignment="Center" Height="100" Margin="32" VerticalAlignment="Top" Width="100" Source="/Images/ic-user.png">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="50" RadiusY="50" Center="50, 50"/>
                     </Image.Clip>

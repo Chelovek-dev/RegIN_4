@@ -80,7 +80,7 @@ namespace RegIN_Bulatov_Perevozshikova.Classes
                 mySqlCommand.Parameters.AddWithValue("@Image", this.Image);
                 mySqlCommand.Parameters.AddWithValue("@DateUpdate", this.DateUpdate);
                 mySqlCommand.Parameters.AddWithValue("@DateCreate", this.DateCreate);
-                mySqlCommand.Parameters.AddWithValue("@PinCode", this.PinCode);
+                mySqlCommand.Parameters.AddWithValue("@PinCode", PinCode);
                 mySqlCommand.ExecuteNonQuery();
             }
             WorkingDB.CloseConnection(mySqlConnection);
@@ -92,7 +92,7 @@ namespace RegIN_Bulatov_Perevozshikova.Classes
             if (WorkingDB.OpenConnection(mySqlConnection))
             {
                 MySqlCommand mySqlCommand = new MySqlCommand($"UPDATE `users` SET `PinCode` = '{pinCode}' WHERE `Login` = @Login", mySqlConnection);
-                mySqlCommand.Parameters.AddWithValue("@PinCode", this.PinCode);
+                mySqlCommand.Parameters.AddWithValue("@PinCode", PinCode);
                 mySqlCommand.Parameters.AddWithValue("@Login", this.Login);
                 mySqlCommand.ExecuteNonQuery();
             }

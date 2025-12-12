@@ -21,7 +21,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
     /// </summary>
     public partial class PinCode : Page
     {
-        private string userLogin = MainWindow.mainWindow.UserLogIn.Login;
+        private string UserLogin = MainWindow.mainWindow.UserLogin.Login;
 
         public PinCode()
         {
@@ -33,7 +33,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
             if (IsValidPinCode(TbPinCode.Text))
             {
                 SetNotification("", Brushes.Black);
-                MainWindow.mainWindow.UserLogIn.GetPinCode(TbPinCode.Text);
+                MainWindow.mainWindow.UserLogin.GetPinCode(TbPinCode.Text);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace RegIN_Bulatov_Perevozshikova.Pages
         {
             if (IsFormValid())
             {
-                MainWindow.mainWindow.UserLogIn.PinCode = TbPinCode.Text;
+                MainWindow.mainWindow.UserLogin.PinCode = TbPinCode.Text;
                 MainWindow.mainWindow.OpenPage(new Login());
             }
         }
